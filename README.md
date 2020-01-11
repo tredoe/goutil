@@ -17,10 +17,6 @@ Command line:
 + goutil/flagplus: provide management of sub-commands for command-line programs.
 + goutil/starter: start, restart, and stop servers built in Go.
 
-Libraries:
-
-+ goutil/ascii: handling of ASCII characters (based Go unicode package).
-
 ## License
 
 The source files are distributed under the [Mozilla Public License, version 2.0](http://mozilla.org/MPL/2.0/),
