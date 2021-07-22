@@ -54,7 +54,6 @@ import (
 	"go/format"
 	"go/scanner"
 	"go/token"
-	"io/ioutil"
 	"log"
 	"os"
 	"strconv"
@@ -386,7 +385,7 @@ func processFile(filename string) ([]*prototype, error) {
 	if err != nil {
 		return nil, err
 	}
-	src, err := ioutil.ReadFile(filename)
+	src, err := os.ReadFile(filename)
 	if err != nil {
 		return nil, err
 	}

@@ -49,7 +49,6 @@ import (
 	"go/scanner"
 	"go/token"
 	"io"
-	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -292,7 +291,7 @@ func processFile(filename string, proto *prototype) error {
 	if err != nil {
 		return err
 	}
-	src, err := ioutil.ReadFile(filename)
+	src, err := os.ReadFile(filename)
 	if err != nil {
 		return err
 	}
