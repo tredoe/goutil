@@ -8,10 +8,6 @@ Tools for code generation:
 + goutil/go.mkdef: generate Go definitions from prototypes that build Cgo intermediary file.
 + goutil/go.mksyscall: generate system calls from function prototypes, in Windows.
 
-Compilation:
-
-+ goutil/rebuild: build a command when any dependent-package is updated.
-
 Command line:
 
 + goutil/flagplus: provide management of sub-commands for command-line programs.
