@@ -13,8 +13,6 @@ import (
 	"path/filepath"
 	"testing"
 	"time"
-
-	"github.com/tredoe/osutil"
 )
 
 func TestSignal(t *testing.T) {
@@ -48,32 +46,32 @@ func TestCommand(t *testing.T) {
 	CMD_MAIN = "./" + CMD_MAIN
 
 	go func() {
-		err = osutil.Exec(CMD_MAIN, "./"+CMD_TEST)
+		err = exec.Command(CMD_MAIN, "./"+CMD_TEST).Run()
 	}()
 	if err != nil {
 		t.Fatal(err)
 	}
 	time.Sleep(3 * time.Second)
 
-	if err = osutil.Exec(CMD_MAIN, "-status", CMD_TEST); err != nil {
+	if err = exec.Command(CMD_MAIN, "-status", CMD_TEST).Run(); err != nil {
 		t.Error(err)
 	}
 	time.Sleep(3 * time.Second)
 	fmt.Println()
 
-	if err = osutil.Exec(CMD_MAIN, "-restart", CMD_TEST); err != nil {
+	if err = exec.Command(CMD_MAIN, "-restart", CMD_TEST).Run(); err != nil {
 		t.Error(err)
 	}
 	time.Sleep(7 * time.Second)
 	fmt.Println()
 
-	if err = osutil.Exec(CMD_MAIN, "-stop", CMD_TEST); err != nil {
+	if err = exec.Command(CMD_MAIN, "-stop", CMD_TEST).Run(); err != nil {
 		t.Error(err)
 	}
 	time.Sleep(3 * time.Second)
 	fmt.Println()
 
-	if err = osutil.Exec(CMD_MAIN, "-status", CMD_TEST); err != nil {
+	if err = exec.Command(CMD_MAIN, "-status", CMD_TEST).Run(); err != nil {
 		t.Error(err)
 	}
 	time.Sleep(2 * time.Second)

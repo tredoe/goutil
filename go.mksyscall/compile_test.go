@@ -15,7 +15,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/tredoe/shutil/file"
+	"github.com/tredoe/fileutil"
 )
 
 func TestCompile(t *testing.T) {
@@ -61,7 +61,7 @@ func TestCompile(t *testing.T) {
 	// avoid introducing new API in Go 1.0.x point releases.
 	// So I have to rename that function to title case to can be found in the
 	// Windows module.
-	err = file.ReplaceAtLineN(
+	err = fileutil.ReplaceAtLineN(
 		filepath.Join(syscallDir, "z-syscall_windows.go"),
 		[]file.ReplacerAtLine{{"\tproc", `"getCurrentProcessId"`, `"GetCurrentProcessId"`}},
 		1,
