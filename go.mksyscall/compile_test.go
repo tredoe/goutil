@@ -15,7 +15,7 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/tredoe/shutil/file"
+	"github.com/tredoe/osutil/file"
 )
 
 func TestCompile(t *testing.T) {
