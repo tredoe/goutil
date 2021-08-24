@@ -11,7 +11,6 @@ import (
 	"fmt"
 	"reflect"
 	"runtime"
-	"strconv"
 )
 
 // GetFunctionName returns the name of a function.
@@ -24,7 +23,17 @@ func GetFunctionName(i interface{}) string {
 func PrintStruct(v interface{}) {
 	valueof := reflect.ValueOf(v).Elem()
 	typeof := valueof.Type()
-	var value interface{}
+
+	for i := 0; i < valueof.NumField(); i++ {
+		f := valueof.Field(i)
+		//fmt.Printf("%d: %s (%s) = %v\n", i,
+		//	typeof.Field(i).Name, f.Type(), f.Interface(),
+		fmt.Printf("%s (%s) = %v\n",
+			typeof.Field(i).Name, f.Type(), f.Interface(),
+		)
+	}
+
+	/*var value interface{}
 
 	for i := 0; i < valueof.NumField(); i++ {
 		fieldT := typeof.Field(i)
@@ -38,9 +47,9 @@ func PrintStruct(v interface{}) {
 		case reflect.Slice:
 			//value = fieldV.Slice(0, fieldV.Len())
 
-			/*for j := 0; j < fieldV.NumField(); j++ {
-				fmt.Println(fieldV.Index[j])
-			}*/
+			//for j := 0; j < fieldV.NumField(); j++ {
+			//	fmt.Println(fieldV.Index[j])
+			//}
 			//fmt.Println(fieldV.Elem())
 
 			fallthrough
@@ -51,5 +60,5 @@ func PrintStruct(v interface{}) {
 		}
 
 		fmt.Printf(" %s: %v\n", fieldT.Name, value)
-	}
+	}*/
 }
